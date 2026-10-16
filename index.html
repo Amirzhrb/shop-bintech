@@ -1,0 +1,1094 @@
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بین تک استور | دنیای تکنولوژی آینده امروز</title>
+    <!-- Vazirmatn Font for Persian -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                        },
+                        dark: {
+                            950: '#07070c',
+                            900: '#0f101a',
+                            800: '#181926',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.06)',
+                        'glow': '0 0 35px rgba(99, 102, 241, 0.45)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand-600 selection:text-white">
+
+    <!-- Top Utility Bar -->
+    <div class="bg-slate-100 border-b border-slate-200/80 text-xs text-slate-600 py-2 px-4">
+        <div class="max-w-[1400px] mx-auto flex flex-wrap items-center justify-between gap-2">
+            <!-- Right Side: Lang & Currency -->
+            <div class="flex items-center gap-4">
+                <div class="relative group cursor-pointer flex items-center gap-1.5 hover:text-brand-600 transition">
+                    <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+                    <span>فارسی</span>
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                    <div class="absolute top-full right-0 mt-1 w-28 bg-white rounded-lg shadow-lg border border-slate-100 py-1 hidden group-hover:block z-50">
+                        <a href="#" class="block px-3 py-1.5 hover:bg-slate-50 font-semibold text-brand-600">فارسی (FA)</a>
+                        <a href="#" class="block px-3 py-1.5 hover:bg-slate-50">English (EN)</a>
+                    </div>
+                </div>
+                <span class="text-slate-300">|</span>
+                <div class="relative group cursor-pointer flex items-center gap-1.5 hover:text-brand-600 transition">
+                    <i data-lucide="coins" class="w-3.5 h-3.5"></i>
+                    <span>تومان (IRT)</span>
+                    <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                    <div class="absolute top-full right-0 mt-1 w-28 bg-white rounded-lg shadow-lg border border-slate-100 py-1 hidden group-hover:block z-50">
+                        <a href="#" class="block px-3 py-1.5 hover:bg-slate-50 font-semibold text-brand-600">تومان (IRT)</a>
+                        <a href="#" class="block px-3 py-1.5 hover:bg-slate-50">دلار (USD)</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Promo -->
+            <div class="hidden md:flex items-center gap-1.5 font-medium text-slate-700">
+                <i data-lucide="package-check" class="w-4 h-4 text-brand-600"></i>
+                <span>ارسال رایگان برای تمامی سفارش‌های بالای ۵ میلیون تومان</span>
+            </div>
+
+            <!-- Left Side: Utility Links -->
+            <div class="flex items-center gap-4">
+                <a href="#track" onclick="showToast('بخش پیگیری سفارش باز شد')" class="flex items-center gap-1 hover:text-brand-600 transition">
+                    <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                    <span>پیگیری سفارش</span>
+                </a>
+                <a href="#support" onclick="showToast('پشتیبانی آنلاین ۲۴ ساعته فعال است')" class="flex items-center gap-1 hover:text-brand-600 transition">
+                    <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
+                    <span>پشتیبانی</span>
+                </a>
+                <a href="#stores" onclick="showToast('نمایش شعب حضوری روی نقشه')" class="hidden sm:flex items-center gap-1 hover:text-brand-600 transition">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+                    <span>شعب ما</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container Card Wrapper (Matches sleek rounded aesthetic of screenshot) -->
+    <div class="max-w-[1400px] mx-auto bg-white sm:my-4 sm:rounded-3xl shadow-soft border border-slate-100 overflow-hidden">
+
+        <!-- Header / Navbar -->
+        <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 px-4 lg:px-8 py-4">
+            <div class="flex items-center justify-between gap-4">
+                
+                <!-- Mobile Menu Button & Logo -->
+                <div class="flex items-center gap-3">
+                    <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                    <a href="#" class="flex items-center gap-2.5 group">
+                        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-purple-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-2xl font-black tracking-tight text-slate-900">bintech</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Links (Desktop) -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+                    <div class="relative group py-1">
+                        <button class="flex items-center gap-1 hover:text-brand-600 transition">
+                            <span>فروشگاه</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div class="absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 p-2 hidden group-hover:block">
+                            <a href="#flash-deals" class="block px-3 py-2 rounded-xl hover:bg-brand-50 hover:text-brand-600">پیشنهادات شگفت‌انگیز</a>
+                            <a href="#new-arrivals" class="block px-3 py-2 rounded-xl hover:bg-brand-50 hover:text-brand-600">جدیدترین گجت‌ها</a>
+                            <a href="#best-sellers" class="block px-3 py-2 rounded-xl hover:bg-brand-50 hover:text-brand-600">پرفروش‌ترین‌ها</a>
+                        </div>
+                    </div>
+                    <div class="relative group py-1">
+                        <button class="flex items-center gap-1 hover:text-brand-600 transition">
+                            <span>دسته‌بندی‌ها</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                        <div class="absolute top-full right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 p-2 hidden group-hover:block grid grid-cols-1 gap-1">
+                            <a href="#categories" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-brand-50 hover:text-brand-600"><i data-lucide="smartphone" class="w-4 h-4"></i> گوشی هوشمند</a>
+                            <a href="#categories" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-brand-50 hover:text-brand-600"><i data-lucide="laptop" class="w-4 h-4"></i> لپ‌تاپ و اولترابوک</a>
+                            <a href="#categories" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-brand-50 hover:text-brand-600"><i data-lucide="headphones" class="w-4 h-4"></i> هدفون و سیستم صوتی</a>
+                            <a href="#categories" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-brand-50 hover:text-brand-600"><i data-lucide="watch" class="w-4 h-4"></i> ساعت هوشمند</a>
+                        </div>
+                    </div>
+                    <a href="#flash-deals" class="hover:text-brand-600 transition">تخفیف‌ها</a>
+                    <a href="#new-arrivals" class="hover:text-brand-600 transition">جدیدترین‌ها</a>
+                    <a href="#collections" class="hover:text-brand-600 transition">برندها</a>
+                    <a href="#footer" class="hover:text-brand-600 transition">وبلاگ</a>
+                </nav>
+
+                <!-- Search Bar & User Actions -->
+                <div class="flex items-center gap-3 sm:gap-5">
+                    <!-- Search Input -->
+                    <div class="hidden md:flex items-center bg-slate-100/90 border border-slate-200/70 rounded-full pl-1.5 pr-4 py-1 w-64 xl:w-80 focus-within:ring-2 focus-within:ring-brand-500 focus-within:bg-white transition">
+                        <input id="searchInput" type="text" placeholder="جستجوی محصول، برند..." class="bg-transparent w-full text-sm text-slate-800 placeholder-slate-400 focus:outline-none">
+                        <button onclick="handleSearch()" class="w-8 h-8 rounded-full bg-brand-600 hover:bg-brand-700 text-white flex items-center justify-center transition shrink-0 shadow-sm">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+
+                    <!-- Action Icons -->
+                    <div class="flex items-center gap-2 sm:gap-3">
+                        <button onclick="showToast('ورود / ثبت‌نام در حساب کاربری')" class="p-2 text-slate-700 hover:text-brand-600 hover:bg-slate-100 rounded-full transition" title="حساب کاربری">
+                            <i data-lucide="user" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="toggleWishlistHeader()" class="relative p-2 text-slate-700 hover:text-rose-500 hover:bg-slate-100 rounded-full transition" title="علاقه‌مندی‌ها">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                            <span id="wishlistBadge" class="hidden absolute -top-0.5 -left-0.5 w-4 h-4 bg-rose-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">۰</span>
+                        </button>
+                        <button id="cartToggleBtn" class="relative p-2 text-slate-700 hover:text-brand-600 hover:bg-slate-100 rounded-full transition" title="سبد خرید">
+                            <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            <span id="cartBadge" class="absolute -top-0.5 -left-0.5 w-4 h-4 bg-brand-600 text-white text-[10px] font-bold rounded-full flex items-center justify-center">۲</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="mt-3 md:hidden flex items-center bg-slate-100 rounded-full pl-1.5 pr-4 py-1.5">
+                <input id="mobileSearchInput" type="text" placeholder="جستجوی محصولات دیجیتال..." class="bg-transparent w-full text-sm focus:outline-none">
+                <button onclick="handleSearch(true)" class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0">
+                    <i data-lucide="search" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Body Padding -->
+        <main class="p-4 lg:p-8 space-y-10">
+
+            <!-- 1. HERO SLIDER SECTION -->
+            <section class="relative rounded-3xl overflow-hidden hero-bg-mesh text-white min-h-[430px] lg:min-h-[500px] flex flex-col justify-between p-6 sm:p-10 lg:p-14 border border-white/10 shadow-2xl">
+                
+                <!-- Decorative Purple Vertical Glow Bars -->
+                <div class="pointer-events-none absolute top-0 left-10 w-64 h-full opacity-25 flex justify-between">
+                    <div class="w-0.5 h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent"></div>
+                    <div class="w-0.5 h-full bg-gradient-to-b from-transparent via-indigo-500 to-transparent"></div>
+                    <div class="w-0.5 h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent"></div>
+                    <div class="w-0.5 h-full bg-gradient-to-b from-transparent via-indigo-600 to-transparent"></div>
+                </div>
+
+                <!-- Slider Arrows -->
+                <button onclick="changeHeroSlide(1)" class="hidden sm:flex absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-900 items-center justify-center shadow-lg transition hover:scale-110">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                </button>
+                <button onclick="changeHeroSlide(-1)" class="hidden sm:flex absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-slate-900 items-center justify-center shadow-lg transition hover:scale-110">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                </button>
+
+                <!-- Hero Content Grid -->
+                <div id="heroSlideContent" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto z-10 transition-opacity duration-300">
+                    
+                    <!-- Right Column: Typography & CTA (In RTL this sits on the right) -->
+                    <div class="lg:col-span-6 space-y-5 text-right">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-600/80 border border-brand-400/40 text-xs font-bold tracking-wide text-white shadow-glow">
+                            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                            <span id="heroBadge">رونمایی جدید</span>
+                        </div>
+                        
+                        <h1 id="heroTitle" class="text-4xl sm:text-5xl xl:text-6xl font-black leading-[1.2] tracking-tight">
+                            تکنولوژی آینده،<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-l from-white via-indigo-200 to-brand-400">همین امروز.</span>
+                        </h1>
+                        
+                        <p id="heroSubtitle" class="text-slate-300 text-sm sm:text-base max-w-md leading-relaxed">
+                            جدیدترین دستگاه‌های هوشمند، گجت‌های پوشیدنی و نوآوری‌های دیجیتال روز دنیا را با ضمانت اصالت تجربه کنید.
+                        </p>
+
+                        <div class="flex flex-wrap items-center gap-4 pt-2">
+                            <a href="#flash-deals" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm px-7 py-3.5 rounded-full shadow-glow transition transform hover:-translate-y-0.5">
+                                <span>خرید آنلاین</span>
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                            </a>
+                            <button onclick="openVideoModal()" class="inline-flex items-center gap-2.5 text-sm font-semibold text-white/90 hover:text-white px-4 py-3 rounded-full hover:bg-white/10 transition">
+                                <span class="w-9 h-9 rounded-full border border-white/40 flex items-center justify-center bg-white/10">
+                                    <i data-lucide="play" class="w-4 h-4 fill-current mr-0.5"></i>
+                                </span>
+                                <span>تماشای ویدیو</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Left Column: 3D Neon Circle & Product Showcase -->
+                    <div class="lg:col-span-6 relative flex items-center justify-center py-6">
+                        <!-- Glowing Neon Ring -->
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-[3px] border-purple-400/80 neon-ring flex items-center justify-center relative">
+                            <!-- Inner ambient glow -->
+                            <div class="absolute inset-6 rounded-full bg-gradient-to-tr from-brand-600/30 via-purple-600/20 to-transparent blur-2xl"></div>
+                            
+                            <!-- Product Showcase Cluster -->
+                            <div class="relative z-20 flex items-end justify-center gap-2 sm:gap-4 animate-float">
+                                <!-- Smart Speaker / Pod -->
+                                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-b from-slate-700 to-slate-950 p-1 shadow-2xl border border-white/10 -ml-6 z-20 flex flex-col items-center justify-center">
+                                    <div class="w-12 h-3 rounded-full bg-purple-500/60 blur-[2px] mb-2"></div>
+                                    <span class="text-[10px] text-slate-400 font-semibold">هوم‌پاد پرو</span>
+                                </div>
+                                <!-- Flagship Smartphone -->
+                                <div class="w-36 sm:w-44 h-64 sm:h-72 rounded-[28px] bg-gradient-to-b from-slate-800 via-slate-900 to-black p-2 shadow-2xl border border-indigo-400/40 relative">
+                                    <div class="w-full h-full rounded-[22px] overflow-hidden relative bg-slate-950">
+                                        <img id="heroMainImg" src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80" alt="iPhone 15 Pro" class="w-full h-full object-cover opacity-90">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                    </div>
+                                </div>
+                                <!-- Smartwatch & Earbuds -->
+                                <div class="w-24 sm:w-28 h-28 sm:h-32 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-white/15 p-2 shadow-2xl -mr-6 z-20 flex flex-col items-center justify-center">
+                                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=300&q=80" alt="Smartwatch" class="w-16 h-16 sm:w-20 sm:h-20 object-contain rounded-xl">
+                                    <span class="text-[10px] text-indigo-300 mt-1 font-medium">اپل واچ اولترا</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Bottom Bar: Trust Badges & Slide Counter -->
+                <div class="pt-6 mt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 z-10 text-xs text-slate-300">
+                    <div class="flex flex-wrap items-center gap-6 sm:gap-10">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-indigo-400">
+                                <i data-lucide="truck" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white">ارسال رایگان</p>
+                                <p class="text-[11px] text-slate-400">سفارش‌های بالای ۵ میلیون</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-indigo-400">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white">پرداخت امن</p>
+                                <p class="text-[11px] text-slate-400">۱۰۰٪ تضمین امنیت تراکنش</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center text-indigo-400">
+                                <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-white">بازگشت آسان</p>
+                                <p class="text-[11px] text-slate-400">۳۰ روز ضمانت بازگشت وجه</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide Progress Indicator -->
+                    <div class="flex items-center gap-3 font-mono text-xs">
+                        <span id="slideNumCurrent" class="font-bold text-white">۰۱</span>
+                        <div class="w-20 h-1 bg-white/20 rounded-full overflow-hidden">
+                            <div id="slideProgressBar" class="w-1/3 h-full bg-white rounded-full transition-all duration-300"></div>
+                        </div>
+                        <span class="text-slate-400">۰۳</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. CATEGORIES ROW -->
+            <section id="categories" class="pt-2">
+                <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-3 items-center">
+                    
+                    <button onclick="filterCategory('گوشی هوشمند')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="smartphone" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">گوشی هوشمند</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۱۸ محصول</span>
+                    </button>
+
+                    <button onclick="filterCategory('لپ‌تاپ')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="laptop" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">لپ‌تاپ</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۱۴ محصول</span>
+                    </button>
+
+                    <button onclick="filterCategory('صوتی')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="headphones" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">تجهیزات صوتی</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۲۲ محصول</span>
+                    </button>
+
+                    <button onclick="filterCategory('ساعت هوشمند')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="watch" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">ساعت هوشمند</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۱۶ محصول</span>
+                    </button>
+
+                    <button onclick="filterCategory('دوربین')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="camera" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">دوربین عکاسی</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۸ محصول</span>
+                    </button>
+
+                    <button onclick="filterCategory('گیمینگ')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">گیمینگ</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۱۲ محصول</span>
+                    </button>
+
+                    <button onclick="filterCategory('جانبی')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="cable" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">لوازم جانبی</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۳۰ محصول</span>
+                    </button>
+
+                    <button onclick="filterCategory('تبلت')" class="group flex flex-col items-center p-3 rounded-2xl hover:bg-slate-50 transition text-center">
+                        <div class="w-14 h-14 rounded-full bg-slate-100 group-hover:bg-brand-50 group-hover:text-brand-600 flex items-center justify-center text-slate-700 transition mb-2.5 shadow-sm">
+                            <i data-lucide="tablet" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-800">تبلت</span>
+                        <span class="text-[11px] text-slate-400 mt-0.5">۱۰ محصول</span>
+                    </button>
+
+                    <!-- View All Categories Dark Card -->
+                    <button onclick="filterCategory('همه')" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-dark-950 hover:bg-brand-600 text-white transition shadow-md h-full min-h-[115px]">
+                        <i data-lucide="layout-grid" class="w-6 h-6 mb-2"></i>
+                        <span class="text-xs font-bold leading-tight">مشاهده همه<br>دسته‌بندی‌ها</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 3. PROMO BENTO GRID -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
+                
+                <!-- Card 1: MacBook Air M2 (Dark Card) -->
+                <div class="lg:col-span-4 rounded-3xl bg-dark-950 text-white p-7 flex flex-col justify-between relative overflow-hidden min-h-[340px] group">
+                    <div class="z-10 space-y-2">
+                        <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">پیشنهاد محدود</span>
+                        <h3 class="text-2xl font-extrabold">مک‌بوک ایر M2</h3>
+                        <p class="text-slate-300 text-sm">قدرت فوق‌العاده با تراشه نسل جدید M2.</p>
+                        <p class="text-indigo-300 font-bold text-sm pt-1">شروع از ۶۴,۹۰۰,۰۰۰ تومان</p>
+                        <div class="pt-3">
+                            <button onclick="addToCart('مک‌بوک ایر M2', 64900000, 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=500&q=80')" class="inline-flex items-center gap-1.5 bg-white text-slate-950 hover:bg-indigo-50 text-xs font-bold px-5 py-2.5 rounded-full transition">
+                                <span>خرید آنلاین</span>
+                                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <img src="461ccc868f9796deff60f9402c58c2045b53f881_1786538647.webp" alt="MacBook Air M2" class="w-64 object-contain self-end mt-4 group-hover:scale-105 transition duration-500 drop-shadow-2xl">
+                </div>
+
+                <!-- Card 2: Mega Deal 40% Off (Purple Card) -->
+                <div class="lg:col-span-4 rounded-3xl bg-gradient-to-br from-brand-600 via-brand-700 to-indigo-900 text-white p-7 flex flex-col justify-between relative overflow-hidden min-h-[340px] group">
+                    <div class="z-10 space-y-2">
+                        <span class="text-[11px] uppercase tracking-wider text-indigo-200 font-semibold">مگا تخفیف</span>
+                        <h3 class="text-3xl font-black leading-tight">تا ۴۰٪ تخفیف<br>ویژه</h3>
+                        <p class="text-indigo-100 text-sm">روی کالاهای دیجیتال منتخب</p>
+                        <div class="pt-3">
+                            <a href="#flash-deals" class="inline-flex items-center gap-1.5 bg-white text-brand-700 hover:bg-indigo-50 text-xs font-bold px-5 py-2.5 rounded-full transition">
+                                <span>مشاهده تخفیف‌ها</span>
+                                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <img src="fde93e4e4db279e53cda5e4b75dd1a3dce8504ac_1779535107.webp" alt="Headphones" class="w-48 h-48 object-cover rounded-2xl self-end -mb-4 -ml-2 group-hover:rotate-3 group-hover:scale-105 transition duration-500 shadow-2xl">
+                </div>
+
+                <!-- Card 3 & 4 Stacked Column -->
+                <div class="md:col-span-2 lg:col-span-4 flex flex-col gap-5">
+                    
+                    <!-- Top Card: Sound That Moves You (Light Blue) -->
+                    <div class="flex-1 rounded-3xl bg-[#e6f0ff] p-6 flex items-center justify-between gap-4 relative overflow-hidden group">
+                        <div class="space-y-1.5 z-10">
+                            <h3 class="text-lg font-black text-slate-900 leading-snug">صدایی که شما را<br>به حرکت وا می‌دارد.</h3>
+                            <p class="text-xs text-slate-600">تجربه صوتی پریمیوم برای هر لحظه.</p>
+                            <div class="pt-2">
+                                <button onclick="filterCategory('صوتی')" class="inline-flex items-center gap-1 bg-white hover:bg-slate-900 hover:text-white text-slate-900 text-xs font-bold px-4 py-2 rounded-full shadow-sm transition">
+                                    <span>خرید سیستم صوتی</span>
+                                    <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <img src="461ccc868f9796deff60f9402c58c2045b53f881_1786538647.webp" alt="Audio" class="w-28 h-28 object-cover rounded-2xl shrink-0 group-hover:scale-105 transition">
+                    </div>
+
+                    <!-- Bottom Card: Capture Every Detail (Light Lime Green) -->
+                    <div class="flex-1 rounded-3xl bg-[#e7f3c7] p-6 flex items-center justify-between gap-4 relative overflow-hidden group">
+                        <div class="space-y-1.5 z-10">
+                            <h3 class="text-lg font-black text-slate-900 leading-snug">ثبت تمام<br>جزئیات.</h3>
+                            <p class="text-xs text-slate-600">دوربین‌های حرفه‌ای برای عکاسان.</p>
+                            <div class="pt-2">
+                                <button onclick="filterCategory('دوربین')" class="inline-flex items-center gap-1 bg-white hover:bg-slate-900 hover:text-white text-slate-900 text-xs font-bold px-4 py-2 rounded-full shadow-sm transition">
+                                    <span>خرید دوربین</span>
+                                    <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <img src="461ccc868f9796deff60f9402c58c2045b53f881_1786538647.webp" alt="Camera" class="w-28 h-28 object-cover rounded-2xl shrink-0 group-hover:scale-105 transition">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. FEATURED COLLECTIONS -->
+            <section id="collections" class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">کالکشن‌های منتخب</h2>
+                    <a href="#flash-deals" class="text-xs font-bold text-slate-500 hover:text-brand-600 flex items-center gap-1">
+                        <span>مشاهده همه</span>
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div onclick="showToast('کالکشن محصولات اپل انتخاب شد')" class="cursor-pointer rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/60 p-4 flex items-center justify-between gap-3 transition group">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm text-slate-900">کالکشن اپل</h4>
+                            <p class="text-xs text-slate-500">آیفون، مک و آیپد</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-brand-600 pt-1 group-hover:translate-x-[-3px] transition">
+                                بررسی کالکشن <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=200&q=80" alt="Apple" class="w-20 h-20 object-cover rounded-xl">
+                    </div>
+
+                    <div onclick="showToast('منطقه گیمینگ انتخاب شد')" class="cursor-pointer rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/60 p-4 flex items-center justify-between gap-3 transition group">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm text-slate-900">منطقه گیمینگ</h4>
+                            <p class="text-xs text-slate-500">ارتقای سطح بازی شما</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-brand-600 pt-1 group-hover:translate-x-[-3px] transition">
+                                بررسی کالکشن <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=200&q=80" alt="Gaming" class="w-20 h-20 object-cover rounded-xl">
+                    </div>
+
+                    <div onclick="showToast('خانه هوشمند انتخاب شد')" class="cursor-pointer rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/60 p-4 flex items-center justify-between gap-3 transition group">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm text-slate-900">زندگی هوشمند</h4>
+                            <p class="text-xs text-slate-500">نوآوری در خانه شما</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-brand-600 pt-1 group-hover:translate-x-[-3px] transition">
+                                بررسی کالکشن <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=200&q=80" alt="Smart Home" class="w-20 h-20 object-cover rounded-xl">
+                    </div>
+
+                    <div onclick="showToast('تجهیزات کار در خانه انتخاب شد')" class="cursor-pointer rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/60 p-4 flex items-center justify-between gap-3 transition group">
+                        <div class="space-y-1">
+                            <h4 class="font-bold text-sm text-slate-900">کار در خانه</h4>
+                            <p class="text-xs text-slate-500">ملزومات بهره‌وری بالا</p>
+                            <span class="inline-flex items-center gap-1 text-xs font-bold text-brand-600 pt-1 group-hover:translate-x-[-3px] transition">
+                                بررسی کالکشن <i data-lucide="arrow-left" class="w-3 h-3"></i>
+                            </span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=200&q=80" alt="Work from home" class="w-20 h-20 object-cover rounded-xl">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. FLASH DEALS WITH LIVE COUNTDOWN -->
+            <section id="flash-deals" class="space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">فروش ویژه لحظه‌ای</h2>
+                        <!-- Live Timer -->
+                        <div class="flex items-center gap-1.5 font-mono text-sm font-black bg-slate-100 px-3 py-1 rounded-xl border border-slate-200">
+                            <div class="text-center">
+                                <span id="cdSeconds" class="text-brand-600">۳۲</span>
+                                <span class="block text-[9px] font-sans text-slate-400 font-normal">ثانیه</span>
+                            </div>
+                            <span class="text-slate-400">:</span>
+                            <div class="text-center">
+                                <span id="cdMinutes" class="text-slate-900">۴۵</span>
+                                <span class="block text-[9px] font-sans text-slate-400 font-normal">دقیقه</span>
+                            </div>
+                            <span class="text-slate-400">:</span>
+                            <div class="text-center">
+                                <span id="cdHours" class="text-slate-900">۰۷</span>
+                                <span class="block text-[9px] font-sans text-slate-400 font-normal">ساعت</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="filterCategory('همه')" class="text-xs font-bold text-slate-500 hover:text-brand-600 flex items-center gap-1">
+                        <span>مشاهده همه تخفیف‌ها</span>
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Flash Deals Product Grid (Rendered via JS for filtering & interactivity) -->
+                <div id="flashDealsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- 6. NEW ARRIVALS -->
+            <section id="new-arrivals" class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">جدیدترین محصولات</h2>
+                    <a href="#flash-deals" class="text-xs font-bold text-slate-500 hover:text-brand-600 flex items-center gap-1">
+                        <span>مشاهده همه</span>
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4">
+                    
+                    <!-- Featured Dark Card: AirPods Pro (2nd Gen) -->
+                    <div class="sm:col-span-2 lg:col-span-4 rounded-3xl bg-gradient-to-br from-[#130f2e] via-[#1c1447] to-[#2e1a72] text-white p-6 flex flex-col justify-between relative overflow-hidden min-h-[290px]">
+                        <div class="flex items-start justify-between gap-2 z-10">
+                            <div class="space-y-1.5">
+                                <span class="inline-block px-2.5 py-0.5 rounded-md bg-brand-500/40 border border-brand-400/40 text-[10px] font-bold">تازه وارد</span>
+                                <h3 class="text-xl font-black">ایرپادز پرو (نسل ۲)</h3>
+                                <p class="text-xs text-indigo-200 max-w-[180px]">صدای تطبیقی هوشمند، تجربه‌ای بی‌نظیر از حذف نویز.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-end justify-between gap-2 z-10 mt-4">
+                            <div class="space-y-2">
+                                <p class="text-lg font-black text-white">۱۲,۴۵۰,۰۰۰ <span class="text-xs font-normal text-indigo-200">تومان</span></p>
+                                <button onclick="addToCart('ایرپادز پرو نسل ۲', 12450000, 'https://images.unsplash.com/photo-1600294037681-c80b4bog9611?auto=format&fit=crop&w=400&q=80')" class="inline-flex items-center gap-1.5 bg-white text-slate-900 hover:bg-indigo-50 text-xs font-bold px-4 py-2 rounded-full transition">
+                                    <span>بررسی و خرید</span>
+                                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                                </button>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?auto=format&fit=crop&w=300&q=80" alt="AirPods Pro" class="w-32 h-32 object-cover rounded-2xl shadow-2xl border border-white/10">
+                        </div>
+                    </div>
+
+                    <!-- 4 New Arrival Product Cards -->
+                    <div id="newArrivalsGrid" class="sm:col-span-2 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. BEST SELLERS (DARK NUMBERED BANNER) -->
+            <section id="best-sellers" class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">پرفروش‌ترین‌های هفته</h2>
+                    <a href="#flash-deals" class="text-xs font-bold text-slate-500 hover:text-brand-600 flex items-center gap-1">
+                        <span>مشاهده همه</span>
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="rounded-3xl bg-dark-950 text-white p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 divide-y sm:divide-y-0 sm:divide-x sm:divide-x-reverse divide-white/10">
+                    
+                    <!-- Item 01 -->
+                    <div class="pt-4 sm:pt-0 sm:px-3 flex flex-col justify-between gap-3">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-3xl font-black text-white/90 font-mono">01</span>
+                                <span class="block text-[9px] bg-brand-600 text-white px-2 py-0.5 rounded mt-1 font-bold">پرفروش‌ترین</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=200&q=80" alt="iPhone 15" class="w-16 h-16 object-cover rounded-xl">
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold line-clamp-1">آیفون ۱۵ پرو مکس ۲۵۶ گیگابایت</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 line-through block">۷۵,۰۰۰,۰۰۰</span>
+                                    <span class="text-xs font-extrabold text-white">۶۹,۵۰۰,۰۰۰ ت</span>
+                                </div>
+                                <button onclick="addToCart('آیفون ۱۵ پرو مکس ۲۵۶ گیگابایت', 69500000, 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=200&q=80')" class="w-8 h-8 rounded-lg bg-brand-600 hover:bg-brand-500 flex items-center justify-center text-white transition">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 02 -->
+                    <div class="pt-4 sm:pt-0 sm:px-3 flex flex-col justify-between gap-3">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-3xl font-black text-white/90 font-mono">02</span>
+                                <span class="block text-[9px] bg-brand-600 text-white px-2 py-0.5 rounded mt-1 font-bold">پرفروش‌ترین</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80" alt="MacBook" class="w-16 h-16 object-cover rounded-xl">
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold line-clamp-1">اپل مک‌بوک ایر M2 مدل ۱۳ اینچ</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 line-through block">۶۸,۰۰۰,۰۰۰</span>
+                                    <span class="text-xs font-extrabold text-white">۶۴,۹۰۰,۰۰۰ ت</span>
+                                </div>
+                                <button onclick="addToCart('اپل مک‌بوک ایر M2 مدل ۱۳ اینچ', 64900000, 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=200&q=80')" class="w-8 h-8 rounded-lg bg-brand-600 hover:bg-brand-500 flex items-center justify-center text-white transition">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 03 -->
+                    <div class="pt-4 sm:pt-0 sm:px-3 flex flex-col justify-between gap-3">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-3xl font-black text-white/90 font-mono">03</span>
+                                <span class="block text-[9px] bg-brand-600 text-white px-2 py-0.5 rounded mt-1 font-bold">پرفروش‌ترین</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=200&q=80" alt="Galaxy Watch" class="w-16 h-16 object-cover rounded-xl">
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold line-clamp-1">ساعت هوشمند سامسونگ گلکسی واچ ۶</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 line-through block">۱۴,۲۰۰,۰۰۰</span>
+                                    <span class="text-xs font-extrabold text-white">۱۱,۹۰۰,۰۰۰ ت</span>
+                                </div>
+                                <button onclick="addToCart('ساعت هوشمند سامسونگ گلکسی واچ ۶', 11900000, 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=200&q=80')" class="w-8 h-8 rounded-lg bg-brand-600 hover:bg-brand-500 flex items-center justify-center text-white transition">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 04 -->
+                    <div class="pt-4 sm:pt-0 sm:px-3 flex flex-col justify-between gap-3">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-3xl font-black text-white/90 font-mono">04</span>
+                                <span class="block text-[9px] bg-brand-600 text-white px-2 py-0.5 rounded mt-1 font-bold">پرفروش‌ترین</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=200&q=80" alt="Sony WH" class="w-16 h-16 object-cover rounded-xl">
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold line-clamp-1">هدفون بی‌سیم سونی WH-1000XM5</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 line-through block">۲۱,۰۰۰,۰۰۰</span>
+                                    <span class="text-xs font-extrabold text-white">۱۷,۵۰۰,۰۰۰ ت</span>
+                                </div>
+                                <button onclick="addToCart('هدفون بی‌سیم سونی WH-1000XM5', 17500000, 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&w=200&q=80')" class="w-8 h-8 rounded-lg bg-brand-600 hover:bg-brand-500 flex items-center justify-center text-white transition">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 05 -->
+                    <div class="pt-4 sm:pt-0 sm:px-3 flex flex-col justify-between gap-3">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-3xl font-black text-white/90 font-mono">05</span>
+                                <span class="block text-[9px] bg-brand-600 text-white px-2 py-0.5 rounded mt-1 font-bold">پرفروش‌ترین</span>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=200&q=80" alt="Canon EOS" class="w-16 h-16 object-cover rounded-xl">
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold line-clamp-1">دوربین بدون آینه کانن مدل EOS R50</h4>
+                            <div class="flex items-center justify-between mt-2">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 line-through block">۴۲,۰۰۰,۰۰۰</span>
+                                    <span class="text-xs font-extrabold text-white">۳۷,۸۰۰,۰۰۰ ت</span>
+                                </div>
+                                <button onclick="addToCart('دوربین بدون آینه کانن مدل EOS R50', 37800000, 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=200&q=80')" class="w-8 h-8 rounded-lg bg-brand-600 hover:bg-brand-500 flex items-center justify-center text-white transition">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 8. SERVICE GUARANTEES STRIP -->
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-extrabold text-slate-900">پرداخت ۱۰۰٪ امن</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">تمامی تراکنش‌های شما رمزنگاری و محافظت می‌شوند.</p>
+                        <a href="#footer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600">بیشتر بدانید <i data-lucide="arrow-left" class="w-3 h-3"></i></a>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="truck" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-extrabold text-slate-900">ارسال سریع و رایگان</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">ارسال اکسپرس رایگان برای سفارش‌های بالای ۵ میلیون.</p>
+                        <a href="#footer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600">بیشتر بدانید <i data-lucide="arrow-left" class="w-3 h-3"></i></a>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-extrabold text-slate-900">۳۰ روز ضمانت بازگشت</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">تعویض یا بازگشت وجه بی‌قید و شرط تا ۳۰ روز.</p>
+                        <a href="#footer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600">بیشتر بدانید <i data-lucide="arrow-left" class="w-3 h-3"></i></a>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="headphones" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-extrabold text-slate-900">پشتیبانی ۲۴/۷</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">تیم کارشناسان ما در هر ساعت آماده پاسخگویی هستند.</p>
+                        <a href="#footer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600">بیشتر بدانید <i data-lucide="arrow-left" class="w-3 h-3"></i></a>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="award" class="w-5 h-5"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xs font-extrabold text-slate-900">گارانتی رسمی شرکتی</h4>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">کالاهای ۱۰۰٪ اورجینال همراه با ضمانت‌نامه معتبر.</p>
+                        <a href="#footer" class="inline-flex items-center gap-1 text-[11px] font-bold text-brand-600">بیشتر بدانید <i data-lucide="arrow-left" class="w-3 h-3"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. APP DOWNLOAD BANNER -->
+            <section class="rounded-3xl bg-gradient-to-l from-slate-100 via-indigo-50/50 to-slate-100 border border-slate-200/70 p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                
+                <!-- Phone Mockups -->
+                <div class="lg:col-span-3 flex justify-center">
+                    <div class="relative flex items-center">
+                        <div class="w-28 h-48 rounded-2xl bg-white shadow-xl border-4 border-slate-900 p-2 flex flex-col justify-between -rotate-6 z-10">
+                            <div class="w-8 h-1 bg-slate-300 rounded-full mx-auto"></div>
+                            <div class="space-y-1.5 my-auto">
+                                <div class="w-full h-12 rounded-lg bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-[10px]">ایگزمپل اپ</div>
+                                <div class="w-3/4 h-2 bg-slate-200 rounded"></div>
+                                <div class="w-1/2 h-2 bg-slate-200 rounded"></div>
+                            </div>
+                            <div class="w-full py-1 bg-brand-600 text-white text-[9px] text-center rounded font-bold">خرید سریع</div>
+                        </div>
+                        <div class="w-28 h-48 rounded-2xl bg-slate-900 text-white shadow-xl border-4 border-slate-800 p-2 flex flex-col justify-between rotate-6 -mr-6">
+                            <div class="w-8 h-1 bg-slate-700 rounded-full mx-auto"></div>
+                            <div class="my-auto text-center space-y-1">
+                                <span class="text-xs font-black text-brand-400">۴۰٪ تخفیف</span>
+                                <p class="text-[9px] text-slate-400">ویژه اولین سفارش در اپلیکیشن</p>
+                            </div>
+                            <div class="w-full py-1 bg-white text-slate-900 text-[9px] text-center rounded font-bold">نصب اپ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Pitch & Store Buttons -->
+                <div class="lg:col-span-4 space-y-3 text-center lg:text-right">
+                    <h3 class="text-xl font-black text-slate-900">خرید هوشمندتر با اپلیکیشن ایگزمپل</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">دسترسی به تخفیف‌های انحصاری اپلیکیشن، ثبت سفارش سریع‌تر و پیگیری لحظه‌ای مرسولات پستی.</p>
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                        <button onclick="showToast('دانلود نسخه iOS از اپ‌استور آغاز شد')" class="flex items-center gap-2 bg-slate-950 hover:bg-slate-800 text-white px-4 py-2 rounded-xl transition">
+                            <i data-lucide="apple" class="w-5 h-5"></i>
+                            <div class="text-right">
+                                <span class="block text-[9px] text-slate-300">دانلود از</span>
+                                <span class="text-xs font-bold">App Store</span>
+                            </div>
+                        </button>
+                        <button onclick="showToast('دانلود نسخه اندروید از گوگل‌پلی آغاز شد')" class="flex items-center gap-2 bg-slate-950 hover:bg-slate-800 text-white px-4 py-2 rounded-xl transition">
+                            <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                            <div class="text-right">
+                                <span class="block text-[9px] text-slate-300">دریافت از</span>
+                                <span class="text-xs font-bold">Google Play</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- App Benefits Checklist -->
+                <div class="lg:col-span-3 space-y-2.5 text-xs text-slate-700 font-medium">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="Flame" class="w-4 h-4 text-brand-600"></i>
+                        <span>تخفیف‌های انحصاری مخصوص کاربران اپ</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-brand-600"></i>
+                        <span>تسویه حساب سریع و ۱۰۰٪ ایمن</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-brand-600"></i>
+                        <span>رهگیری لحظه‌ای وضعیت سفارش</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4 text-brand-600"></i>
+                        <span>ثبت درخواست مرجوعی آسان و سریع</span>
+                    </div>
+                </div>
+
+                <!-- QR Code Box -->
+                <div class="lg:col-span-2 flex flex-col items-center justify-center">
+                    <div class="p-3 bg-white rounded-2xl shadow-md border border-slate-200">
+                        <i data-lucide="qr-code" class="w-20 h-20 text-slate-900"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-600 mt-2 text-center">اسکن جهت دانلود<br>مستقیم اپلیکیشن</span>
+                </div>
+            </section>
+
+            <!-- 10. BOTTOM 3-COLUMN: TESTIMONIALS + NEWSLETTER CLUB + STATS -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+                
+                <!-- Testimonials Card -->
+                <div class="lg:col-span-4 rounded-3xl bg-slate-50 border border-slate-200/60 p-6 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-sm font-extrabold text-slate-900">نظرات مشتریان ما</h3>
+                            <i data-lucide="quote" class="w-6 h-6 text-slate-200"></i>
+                        </div>
+                        <p id="testimonialText" class="text-xs text-slate-600 leading-relaxed min-h-[60px]">
+                            «ایگزمپل بهترین مجموعه از گجت‌های روز رو داره. ارسال فوق‌العاده سریع بود، قیمت‌ها عالی و پشتیبانی واقعاً محترمانه و حرفه‌ای برخورد کردن!»
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-200/60 mt-4">
+                        <div class="flex items-center gap-2.5">
+                            <img id="testimonialAvatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Customer" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <h4 id="testimonialName" class="text-xs font-bold text-slate-900">سارا محمدی</h4>
+                                <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">خریدار تایید شده</span>
+                            </div>
+                        </div>
+                        <!-- Dots -->
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="setTestimonial(0)" id="tDot0" class="w-2.5 h-2.5 rounded-full bg-brand-600 transition"></button>
+                            <button onclick="setTestimonial(1)" id="tDot1" class="w-2 h-2 rounded-full bg-slate-300 transition"></button>
+                            <button onclick="setTestimonial(2)" id="tDot2" class="w-2 h-2 rounded-full bg-slate-300 transition"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Join Example Club (Dark Neon Card) -->
+                <div class="lg:col-span-5 rounded-3xl bg-dark-950 text-white p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+                    <div class="z-10 space-y-2 max-w-xs">
+                        <h3 class="text-xl font-black">عضویت در باشگاه ایگزمپل</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">پیشنهادات ویژه، محصولات جدید و کدهای تخفیف را مستقیماً در ایمیل خود دریافت کنید.</p>
+                    </div>
+
+                    <form onsubmit="handleNewsletter(event)" class="z-10 mt-5 flex items-center bg-white/10 backdrop-blur-md border border-white/15 rounded-full p-1 max-w-sm">
+                        <input id="newsletterEmail" type="email" required placeholder="ایمیل خود را وارد کنید..." class="bg-transparent text-xs text-white placeholder-slate-400 px-3 py-2 w-full focus:outline-none">
+                        <button type="submit" class="bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold px-5 py-2 rounded-full shrink-0 transition">
+                            عضویت
+                        </button>
+                    </form>
+                    <span class="text-[10px] text-slate-400 mt-2 z-10">بدون اسپم، لغو عضویت در هر زمان.</span>
+
+                    <!-- Neon Envelope Graphic -->
+                    <div class="pointer-events-none absolute -left-4 bottom-4 w-32 h-32 rounded-2xl bg-brand-600/20 blur-xl"></div>
+                    <i data-lucide="mail" class="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 w-24 h-24 text-purple-500/30 -rotate-12 stroke-[1.2]"></i>
+                </div>
+
+                <!-- Store Statistics Card -->
+                <div class="lg:col-span-3 rounded-3xl bg-slate-50 border border-slate-200/60 p-6 flex flex-col justify-around gap-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i data-lucide="users" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xl font-black text-slate-900">+۱۰ هزار</span>
+                        </div>
+                        <span class="text-xs text-slate-500 font-medium">مشتری راضی</span>
+                    </div>
+
+                    <div class="flex items-center justify-between border-y border-slate-200/60 py-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xl font-black text-slate-900">+۵۰۰</span>
+                        </div>
+                        <span class="text-xs text-slate-500 font-medium">برند برتر جهانی</span>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i data-lucide="smile" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xl font-black text-slate-900">۹۹٪</span>
+                        </div>
+                        <span class="text-xs text-slate-500 font-medium">میزان رضایت خرید</span>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- 11. DARK FOOTER -->
+        <footer id="footer" class="bg-dark-950 text-slate-400 px-6 lg:px-12 py-12 border-t border-slate-800">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-white/10">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-3 space-y-4">
+                    <a href="#" class="flex items-center gap-2.5 text-white">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center">
+                            <i data-lucide="cpu" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-xl font-black">bintech</span>
+                    </a>
+                    <p class="text-xs leading-relaxed text-slate-400">
+                        مقصد جامع شما برای جدیدترین محصولات تکنولوژی و گجت‌های هوشمند روز دنیا. کیفیتی که می‌توانید به آن اعتماد کنید.
+                    </p>
+                    <div class="flex items-center gap-3 pt-1">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-600 text-white flex items-center justify-center transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-600 text-white flex items-center justify-center transition"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-600 text-white flex items-center justify-center transition"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 hover:bg-brand-600 text-white flex items-center justify-center transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links 1: Shop -->
+                <div class="lg:col-span-2 space-y-3 text-xs">
+                    <h4 class="text-white font-bold text-sm">فروشگاه</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#flash-deals" class="hover:text-white transition">همه محصولات</a></li>
+                        <li><a href="#best-sellers" class="hover:text-white transition">پرفروش‌ترین‌ها</a></li>
+                        <li><a href="#new-arrivals" class="hover:text-white transition">جدیدترین‌ها</a></li>
+                        <li><a href="#flash-deals" class="hover:text-white transition">تخفیف‌های ویژه</a></li>
+                        <li><a href="#categories" class="hover:text-white transition">دسته‌بندی‌ها</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 2: Customer Service -->
+                <div class="lg:col-span-2 space-y-3 text-xs">
+                    <h4 class="text-white font-bold text-sm">خدمات مشتریان</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">مرکز راهنمایی</a></li>
+                        <li><a href="#" class="hover:text-white transition">پیگیری سفارش</a></li>
+                        <li><a href="#" class="hover:text-white transition">شرایط بازگشت کالا</a></li>
+                        <li><a href="#" class="hover:text-white transition">اطلاعات ارسال</a></li>
+                        <li><a href="#" class="hover:text-white transition">تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 3: Company -->
+                <div class="lg:col-span-2 space-y-3 text-xs">
+                    <h4 class="text-white font-bold text-sm">شرکت ایگزمپل</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">درباره ما</a></li>
+                        <li><a href="#" class="hover:text-white transition">فرصت‌های شغلی</a></li>
+                        <li><a href="#" class="hover:text-white transition">اخبار و رسانه</a></li>
+                        <li><a href="#" class="hover:text-white transition">مجله تکنولوژی</a></li>
+                        <li><a href="#" class="hover:text-white transition">همکاری در فروش</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links 4: Legal & Payment -->
+                <div class="lg:col-span-3 space-y-4 text-xs">
+                    <h4 class="text-white font-bold text-sm">قوانین و پرداخت</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition">قوانین و مقررات</a></li>
+                        <li><a href="#" class="hover:text-white transition">حریم خصوصی</a></li>
+                    </ul>
+                    <div class="pt-2">
+                        <span class="block text-white font-bold mb-2">درگاه‌های پرداخت مورد پذیرش</span>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="px-2.5 py-1 rounded bg-white/10 text-white font-bold text-[10px]">شتاب</span>
+                            <span class="px-2.5 py-1 rounded bg-white/10 text-white font-bold text-[10px]">شاپرک</span>
+                            <span class="px-2.5 py-1 rounded bg-white/10 text-white font-bold text-[10px]">VISA</span>
+                            <span class="px-2.5 py-1 rounded bg-white/10 text-white font-bold text-[10px]">PayPal</span>
+                            <span class="px-2.5 py-1 rounded bg-white/10 text-white font-bold text-[10px]">Apple Pay</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 1406 بین تک استور. تمامی حقوق محفوظ است.</p>
+                <p>طراحی و توسعه توسط bintech</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- SLIDE-OVER SHOPPING CART DRAWER -->
+    <div id="cartDrawerBackdrop" onclick="closeCart()" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity"></div>
+    <aside id="cartDrawer" class="fixed top-0 left-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-600"></i>
+                <h3 class="font-extrabold text-base text-slate-900">سبد خرید شما</h3>
+            </div>
+            <button onclick="closeCart()" class="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <!-- Populated by JS -->
+        </div>
+
+        <div class="p-5 border-t border-slate-100 bg-slate-50 space-y-4">
+            <div class="flex items-center justify-between text-sm">
+                <span class="text-slate-600 font-medium">جمع کل سفارش:</span>
+                <span id="cartTotalPrice" class="font-black text-base text-slate-900">۰ تومان</span>
+            </div>
+            <button onclick="checkoutOrder()" class="w-full py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-lg shadow-brand-600/25 transition">
+                ادامه جهت تسویه حساب
+            </button>
+        </div>
+    </aside>
+
+    <!-- VIDEO MODAL -->
+    <div id="videoModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-dark-900 border border-white/15 rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl">
+            <div class="p-4 flex items-center justify-between border-b border-white/10 text-white">
+                <span class="font-bold text-sm">ویدیوی معرفی نسل جدید گجت‌های هوشمند</span>
+                <button onclick="closeVideoModal()" class="p-1 rounded-lg hover:bg-white/10"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div class="aspect-video bg-black flex flex-col items-center justify-center text-white p-8 text-center space-y-3">
+                <i data-lucide="film" class="w-14 h-14 text-brand-500 animate-bounce"></i>
+                <p class="text-base font-bold">پخش‌کننده رسمی ایگزمپل استور</p>
+                <p class="text-xs text-slate-400 max-w-md">بررسی تخصصی آیفون ۱۵ پرو مکس، مک‌بوک ایر M2 و ساعت‌های هوشمند سال ۲۰۲۶ با دوبله اختصاصی فارسی.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toastBox" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-xl border border-white/10 flex items-center gap-2.5">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+            <span id="toastMessage">عملیات با موفقیت انجام شد</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script src="script.js">
+    </script>
+</body>
+</html>

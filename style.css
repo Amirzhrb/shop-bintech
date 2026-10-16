@@ -1,0 +1,27 @@
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f4f5f8;
+            overflow-x: hidden;
+        }
+        /* Hide scrollbars for horizontal carousels */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .neon-ring {
+            box-shadow: 0 0 50px 8px rgba(124, 58, 237, 0.5), inset 0 0 40px 5px rgba(99, 102, 241, 0.4);
+        }
+        .hero-bg-mesh {
+            background: radial-gradient(circle at 30% 50%, rgba(109, 40, 217, 0.28) 0%, rgba(15, 16, 26, 0.95) 55%, #07070c 100%);
+        }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
